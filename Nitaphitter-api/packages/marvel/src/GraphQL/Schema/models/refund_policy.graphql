@@ -1,0 +1,74 @@
+extend type Query {
+    refundPolicies(
+        search: String
+        orderBy: String
+        sortedBy: String
+        language: String
+        searchJoin: String = "AND"
+    ): [RefundPolicy]!
+        @paginate(
+            builder: "Marvel\\GraphQL\\Queries\\RefundPolicyQuery@fetchRefundPolicies"
+            defaultCount: 15
+        )
+    refundPolicy(
+        id: ID @eq
+        slug: String @eq
+        language: String @eq
+    ): RefundPolicy @find
+}
+
+type RefundPolicy {
+    id: ID!
+    title: String
+    slug: String!
+    description: String
+    target: String
+    language: String
+    status: String
+    shop_id: ID
+    translated_languages: [String]
+    created_at: String
+    updated_at: String
+    deleted_at: String
+}
+
+input CreateRefundPolicyInput {
+    title: String! @rules(apply: ["required"])
+    target: String! @rules(apply: ["required"])
+    status: String! @rules(apply: ["required"])
+    slug: String
+    description: String
+        @rules(
+            apply: ["max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    shop_id: ID
+    language: String
+}
+
+input UpdateRefundPolicyInput {
+    id: ID!
+    title: String! @rules(apply: ["required"])
+    target: String @rules(apply: ["required"])
+    status: String
+    slug: String
+    description: String
+        @rules(
+            apply: ["max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    shop_id: ID
+    language: String
+}
+
+extend type Mutation {
+    createRefundPolicy(input: CreateRefundPolicyInput! @spread): RefundPolicy
+        @field(resolver: "RefundPolicyMutator@storeRefundPolicy")
+        @can(ability: "super_admin")
+    updateRefundPolicy(input: UpdateRefundPolicyInput! @spread): RefundPolicy
+        @field(resolver: "RefundPolicyMutator@updateRefundPolicy")
+        @can(ability: "super_admin")
+    deleteRefundPolicy(id: ID!): RefundPolicy
+        @field(resolver: "RefundPolicyMutator@deleteRefundPolicy")
+        @can(ability: "super_admin")
+}

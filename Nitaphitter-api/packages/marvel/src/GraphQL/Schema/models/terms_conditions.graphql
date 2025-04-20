@@ -1,0 +1,84 @@
+extend type Query {
+    termsConditions(
+        search: String
+        orderBy: String
+        sortedBy: String
+        language: String
+        searchJoin: String = "AND"
+        shop_id: ID
+        type: String
+        issued_by: String
+        is_approved: Boolean
+    ): [TermsAndConditions]
+        @paginate(
+            builder: "Marvel\\GraphQL\\Queries\\TermsConditionsQuery@fetchTermsConditions"
+            defaultCount: 15
+        )
+    termsCondition(
+        id: ID @eq
+        slug: String @eq
+        language: String @eq
+    ): TermsAndConditions @find
+}
+
+type TermsAndConditions {
+    id: ID
+    shop_id: ID
+    title: String
+    slug: String
+    description: String
+    type: String
+    issued_by: String
+    is_approved: Boolean
+    language: String
+    translated_languages: [String]
+}
+
+input CreateTermsConditionsInput {
+    title: String! @rules(apply: ["required", "max:255"])
+    description: String
+        @rules(
+            apply: ["required", "max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    slug: String
+    user_id: ID
+    shop_id: ID
+    type: String
+    issued_by: String
+    language: String
+}
+
+input UpdateTermsConditionsInput {
+    id: ID!
+    title: String
+    description: String
+        @rules(
+            apply: ["max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    slug: String
+    user_id: ID
+    shop_id: ID
+    type: String
+    is_approved: Boolean
+    issued_by: String
+    language: String
+}
+
+extend type Mutation {
+    createTermsConditions(
+        input: CreateTermsConditionsInput! @spread
+    ): TermsAndConditions
+        @field(resolver: "TermsConditionsMutator@storeTermsConditions")
+    updateTermsConditions(
+        input: UpdateTermsConditionsInput! @spread
+    ): TermsAndConditions
+        @field(resolver: "TermsConditionsMutator@updateTermsConditions")
+    deleteTermsConditions(id: ID!): TermsAndConditions
+        @field(resolver: "TermsConditionsMutator@deleteTermsConditions")
+    approveTermsConditions(id: ID!): TermsAndConditions
+        @field(resolver: "TermsConditionsMutator@approveTerm")
+    disApproveTermsConditions(id: ID!): TermsAndConditions
+        @field(resolver: "TermsConditionsMutator@disApproveTerm")
+}

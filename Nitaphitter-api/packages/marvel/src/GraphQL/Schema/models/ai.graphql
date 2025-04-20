@@ -1,0 +1,13 @@
+type DescriptionResponse {
+    status: String
+    result: String
+}
+
+input AiInput {
+    prompt: String! @rules(apply: ["string", "required"])
+}
+
+extend type Mutation {
+    generateDescriptions(input: AiInput! @spread): DescriptionResponse
+        @field(resolver: "AiMutator@generateDescription")
+}

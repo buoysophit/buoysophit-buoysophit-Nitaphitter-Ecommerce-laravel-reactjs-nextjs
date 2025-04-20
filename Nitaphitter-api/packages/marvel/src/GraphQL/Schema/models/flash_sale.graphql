@@ -1,0 +1,108 @@
+extend type Query {
+    flashSales(
+        search: String
+        orderBy: String
+        sortedBy: String
+        language: String
+        searchJoin: String = "AND"
+        hasProducts: _ @whereHasConditions(columns: ["name", "slug"])
+        request_from: String
+    ): [FlashSale!]!
+        @paginate(
+            builder: "Marvel\\GraphQL\\Queries\\FlashSaleQuery@fetchFlashSales"
+            defaultCount: 15
+        )
+    flashSale(id: ID @eq, slug: String @eq, language: String @eq): FlashSale
+        @find
+    productsByFlashSale(slug: String!, search: String): [Product]!
+        @paginate(
+            builder: "Marvel\\GraphQL\\Queries\\FlashSaleQuery@fetchProductsByFlashSale"
+            defaultCount: 15
+        )
+    flashSaleInfoByProductID(id: String): [FlashSale]!
+        @field(
+            resolver: "Marvel\\GraphQL\\Queries\\FlashSaleQuery@fetchFlashSaleInfoByProductID"
+        )
+}
+
+type FlashSale {
+    id: ID!
+    title: String!
+    slug: String!
+    description: String
+    start_date: String
+    end_date: String
+    sale_status: Boolean
+    type: String
+    rate: Float
+    language: String
+    cover_image: Attachment
+    image: Attachment
+    sale_builder: SaleBuilder
+    products: [Product]! @belongsToMany
+    translated_languages: [String]
+    deleted_at: String
+    created_at: String
+    updated_at: String
+}
+
+type SaleBuilder {
+    data_type: String
+    product_ids: [ID]
+}
+
+input SaleBuilderInput {
+    data_type: String
+    product_ids: [ID]
+}
+
+input CreateFlashSaleInput {
+    title: String! @rules(apply: ["required", "max:255"])
+    slug: String
+    description: String
+        @rules(
+            apply: ["required", "max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    start_date: String @rules(apply: ["required"])
+    language: String
+    end_date: String
+    type: String
+    rate: Float
+    sale_status: Boolean
+    sale_builder: SaleBuilderInput
+    cover_image: AttachmentInput
+    image: AttachmentInput
+}
+
+input UpdateFlashSaleInput {
+    id: ID!
+    title: String! @rules(apply: ["required", "max:255"])
+    slug: String
+    description: String
+        @rules(
+            apply: ["max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    start_date: String
+    cover_image: AttachmentInput
+    image: AttachmentInput
+    language: String
+    end_date: String
+    type: String
+    rate: Float
+    sale_status: Boolean
+    sale_builder: SaleBuilderInput
+}
+
+extend type Mutation {
+    createFlashSale(input: CreateFlashSaleInput! @spread): FlashSale
+        @field(resolver: "FlashSaleMutator@storeFlashSale")
+        @can(ability: "store_owner")
+    updateFlashSale(input: UpdateFlashSaleInput! @spread): FlashSale
+        @field(resolver: "FlashSaleMutator@updateFlashSale")
+        @can(ability: "store_owner")
+    deleteFlashSale(id: ID!): FlashSale
+        @field(resolver: "FlashSaleMutator@deleteFlashSale")
+        @can(ability: "store_owner")
+}

@@ -1,0 +1,366 @@
+extend type Query {
+    settings(language: String): Settings!
+        @field(
+            resolver: "Marvel\\GraphQL\\Queries\\SettingsQuery@fetchSettings"
+        )
+}
+
+type SeoSettings {
+    metaTitle: String
+    metaDescription: String
+    metaTags: String
+    canonicalUrl: String
+    ogTitle: String
+    ogDescription: String
+    ogImage: Attachment
+    twitterHandle: String
+    twitterCardType: String
+}
+type SettingCurrencyOptions {
+    formation: String
+    fractions: Int
+}
+
+type ContactDetails {
+    socials: [ShopSocials]
+    contact: String
+    location: Location
+    website: String
+    emailAddress: String
+}
+input ContactDetailsInput {
+    socials: [ShopSocialInput]
+    contact: String
+    location: LocationInput
+    website: String
+    emailAddress: String
+}
+
+type GoogleSettings {
+    isEnable: Boolean
+    tagManagerId: String
+}
+type FacebookSettings {
+    isEnable: Boolean
+    appId: String
+    pageId: String
+}
+
+type ServerInfo {
+    max_execution_time: String
+    max_input_time: String
+    memory_limit: String
+    post_max_size: Int
+    upload_max_filesize: Int
+}
+type PushNotification {
+    order: Boolean
+    message: Boolean
+    storeNotice: Boolean
+}
+type All {
+    all: PushNotification
+}
+type Maintenance {
+    title: String
+    image: Attachment
+    description: String
+    start: String
+    until: String
+    buttonTitleOne: String
+    newsLetterTitle: String
+    buttonTitleTwo: String
+    contactUsTitle: String
+    aboutUsTitle: String
+    newsLetterDescription: String
+    aboutUsDescription: String
+    isOverlayColor: Boolean
+    overlayColor: String
+    overlayColorRange: String
+}
+type PopUpNotShow {
+    title: String
+    popUpExpiredIn: Float
+}
+type PromoPopup {
+    image: Attachment
+    title: String
+    description: String
+    popUpDelay: Float
+    popUpExpiredIn: Float
+    isPopUpNotShow: Boolean
+    popUpNotShow: PopUpNotShow
+}
+type ReviewSystem {
+    name: String
+    value: String
+}
+type SettingsOptions {
+    siteTitle: String
+    siteSubtitle: String
+    currency: String
+    currencyOptions: SettingCurrencyOptions
+    useOtp: Boolean
+    useGoogleMap: Boolean
+    useEnableGateway: Boolean
+    useCashOnDelivery: Boolean
+    useAi: Boolean
+    paymentGateway: [PaymentGateways]
+    defaultPaymentGateway: String
+    useMustVerifyEmail: Boolean
+    isProductReview: Boolean
+    contactDetails: ContactDetails
+    minimumOrderAmount: Float
+    maxShopDistance: Float
+    currencyToWalletRatio: Int
+    signupPoints: Int
+    maximumQuestionLimit: Int
+    deliveryTime: [DeliveryTime]
+    logo: Attachment
+    collapseLogo: Attachment
+    taxClass: String
+    shippingClass: String
+    freeShipping: Boolean
+    freeShippingAmount: Float
+    seo: SeoSettings
+    google: GoogleSettings
+    facebook: FacebookSettings
+    guestCheckout: Boolean
+    smsEvent: EventSettings
+    emailEvent: EventSettings
+    server_info: ServerInfo
+    useAi: Boolean
+    enableTerms: Boolean
+    defaultAi: String
+    StripeCardOnly: Boolean
+    pushNotification: All
+    siteLink: String
+    copyrightText: String
+    externalText: String
+    externalLink: String
+    isUnderMaintenance: Boolean!
+    maintenance: Maintenance!
+    enableCoupons: Boolean
+    isPromoPopUp: Boolean
+    promoPopup: PromoPopup
+    enableEmailForDigitalProduct: Boolean
+    isMultiCommissionRate: Boolean
+    enableReviewPopup: Boolean
+    reviewSystem: ReviewSystem
+}
+
+type EventSettings {
+    customer: Customer
+    vendor: Vendor
+    admin: Admin
+}
+
+type Customer {
+    statusChangeOrder: Boolean
+    refundOrder: Boolean
+    paymentOrder: Boolean
+    answerQuestion: Boolean
+}
+
+type Vendor {
+    statusChangeOrder: Boolean
+    refundOrder: Boolean
+    paymentOrder: Boolean
+    createReview: Boolean
+    createQuestion: Boolean
+}
+
+type Admin {
+    statusChangeOrder: Boolean
+    refundOrder: Boolean
+    paymentOrder: Boolean
+}
+
+type PaymentGateways {
+    name: String
+    title: String
+}
+
+input PaymentGatewaysInput {
+    name: String
+    title: String
+}
+
+type Settings {
+    id: ID!
+    language: String!
+    options: SettingsOptions!
+}
+
+input DeliveryTimeInput {
+    title: String
+    description: String
+}
+
+input SettingCurrencyOptionsInput {
+    formation: String
+    fractions: Int
+}
+
+input GoogleSettingsInput {
+    isEnable: Boolean
+    tagManagerId: String
+}
+input FacebookSettingsInput {
+    isEnable: Boolean
+    appId: String
+    pageId: String
+}
+
+input SeoSettingsInput {
+    metaTitle: String
+    metaDescription: String
+    metaTags: String
+    canonicalUrl: String
+    ogTitle: String
+    ogDescription: String
+    ogImage: AttachmentInput
+    twitterHandle: String
+    twitterCardType: String
+}
+input CustomerInput {
+    statusChangeOrder: Boolean
+    refundOrder: Boolean
+    paymentOrder: Boolean
+    answerQuestion: Boolean
+}
+
+input VendorInput {
+    statusChangeOrder: Boolean
+    refundOrder: Boolean
+    paymentOrder: Boolean
+    createReview: Boolean
+    createQuestion: Boolean
+}
+
+input AdminInput {
+    statusChangeOrder: Boolean
+    refundOrder: Boolean
+    paymentOrder: Boolean
+}
+
+input EventSettingsInput {
+    customer: CustomerInput
+    vendor: VendorInput
+    admin: AdminInput
+}
+
+input ServerInfoInput {
+    max_execution_time: String
+    max_input_time: String
+    memory_limit: String
+    post_max_size: Int
+    upload_max_filesize: Int
+}
+input PushNotificationInput {
+    order: Boolean
+    message: Boolean
+    storeNotice: Boolean
+}
+input AllInput {
+    all: PushNotificationInput
+}
+input MaintenanceInput {
+    title: String
+    image: AttachmentInput
+    description: String
+    start: String
+    until: String
+    buttonTitleOne: String
+    newsLetterTitle: String
+    buttonTitleTwo: String
+    contactUsTitle: String
+    aboutUsTitle: String
+    newsLetterDescription: String
+    aboutUsDescription: String
+    isOverlayColor: Boolean
+    overlayColor: String
+    overlayColorRange: String
+}
+input PopUpNotShowInput {
+    title: String
+    popUpExpiredIn: Float
+}
+input PromoPopupInput {
+    image: AttachmentInput
+    title: String
+    description: String
+    popUpDelay: Float
+    popUpExpiredIn: Float
+    isPopUpNotShow: Boolean
+    popUpNotShow: PopUpNotShowInput
+}
+
+input ReviewSystemInput {
+    name: String
+    value: String
+}
+
+input SettingsOptionsInput {
+    siteTitle: String
+    siteSubtitle: String
+    currency: String
+    currencyOptions: SettingCurrencyOptionsInput
+    useOtp: Boolean
+    useGoogleMap: Boolean
+    useEnableGateway: Boolean
+    useCashOnDelivery: Boolean
+    paymentGateway: [PaymentGatewaysInput]
+    defaultPaymentGateway: String
+    useMustVerifyEmail: Boolean
+    isProductReview: Boolean
+    contactDetails: ContactDetailsInput
+    minimumOrderAmount: Float
+    maxShopDistance: Float
+    currencyToWalletRatio: Int
+    signupPoints: Int
+    maximumQuestionLimit: Int
+    deliveryTime: [DeliveryTimeInput]
+    logo: AttachmentInput
+    collapseLogo: AttachmentInput
+    taxClass: String
+    shippingClass: String
+    freeShipping: Boolean
+    freeShippingAmount: Float
+    seo: SeoSettingsInput
+    google: GoogleSettingsInput
+    facebook: FacebookSettingsInput
+    guestCheckout: Boolean
+    smsEvent: EventSettingsInput
+    emailEvent: EventSettingsInput
+    server_info: ServerInfoInput
+    useAi: Boolean
+    enableTerms: Boolean
+    defaultAi: String
+    StripeCardOnly: Boolean
+    pushNotification: AllInput
+    siteLink: String
+    copyrightText: String
+    externalText: String
+    externalLink: String
+    isUnderMaintenance: Boolean
+    maintenance: MaintenanceInput
+    enableCoupons: Boolean
+    isPromoPopUp: Boolean
+    promoPopup: PromoPopupInput
+    enableEmailForDigitalProduct: Boolean
+    enableReviewPopup: Boolean
+    reviewSystem: ReviewSystemInput
+    isMultiCommissionRate: Boolean
+}
+
+input SettingsInput {
+    language: String!
+    options: SettingsOptionsInput
+}
+
+extend type Mutation {
+    updateSettings(input: SettingsInput! @spread): Settings!
+        @field(resolver: "SettingsMutator@update")
+        @can(ability: "super_admin")
+}

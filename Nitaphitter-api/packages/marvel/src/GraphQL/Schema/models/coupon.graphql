@@ -1,0 +1,133 @@
+extend type Query {
+    coupons(
+        search: String
+        orderBy: String
+        sortedBy: String
+        language: String
+        searchJoin: String = "AND"
+        shop_id: ID
+        type: String
+        is_approve: Boolean
+    ): [Coupon!]!
+        @paginate(
+            builder: "Marvel\\GraphQL\\Queries\\CouponQuery@fetchCoupons"
+            defaultCount: 15
+        )
+    coupon(id: ID @eq, code: String @eq, language: String @eq): Coupon @find
+}
+
+type Coupon {
+    id: ID!
+    code: String!
+    description: String
+    orders: [Order] @hasMany
+    type: String!
+    language: String
+    translated_languages: [String]
+    image: Attachment
+    is_valid: Boolean
+    message: String
+    amount: Float!
+    minimum_cart_amount: Float!
+    sub_total: Float
+    active_from: String!
+    expire_at: String!
+    created_at: DateTime
+    updated_at: DateTime
+    target: Boolean
+    is_approve: Boolean
+    shop_id: ID
+    user_id: ID
+}
+
+input CreateCouponInput {
+    code: String!
+        @rules(
+            apply: ["max:20"]
+            messages: { max: "Code should be min 20 character" }
+        )
+    type: String!
+    language: String
+    amount: Float!
+    minimum_cart_amount: Float!
+    description: String
+        @rules(
+            apply: ["max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    image: AttachmentInput
+    active_from: String!
+    expire_at: String!
+    target: Boolean
+    is_approve: Boolean
+    shop_id: ID @rules(apply: ["exists:shops,id"])
+    user_id: ID @rules(apply: ["exists:users,id"])
+}
+
+input UpdateCouponInput {
+    id: ID!
+    code: String
+        @rules(
+            apply: ["max:20"]
+            messages: { max: "Code should be min 20 character" }
+        )
+    type: String!
+    amount: Float!
+    minimum_cart_amount: Float!
+    language: String
+    description: String
+        @rules(
+            apply: ["max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    image: AttachmentInput
+    active_from: String!
+    expire_at: String!
+    target: Boolean
+    is_approve: Boolean
+    shop_id: ID @rules(apply: ["exists:shops,id"])
+    user_id: ID @rules(apply: ["exists:users,id"])
+}
+input VerifyCouponItemInput {
+    id: ID
+    name: String
+    slug: String
+    unit: String
+    image: String
+    stock: Int
+    price: Float
+    language: String
+    in_flash_sale: Int
+    is_digital: Boolean
+    shop_id: ID
+    quantity: Int
+    itemTotal: Float
+}
+input VerifyCouponInput {
+    code: String!
+    sub_total: Float!
+    item: [VerifyCouponItemInput!]!
+}
+
+type VerifyCouponResponse {
+    is_valid: Boolean!
+    message: String
+    coupon: Coupon
+}
+
+extend type Mutation {
+    createCoupon(input: CreateCouponInput! @spread): Coupon
+        @field(resolver: "CouponMutator@store")
+    updateCoupon(input: UpdateCouponInput! @spread): Coupon
+        @field(resolver: "CouponMutator@update")
+    deleteCoupon(id: ID!): Coupon @delete
+    verifyCoupon(input: VerifyCouponInput! @spread): VerifyCouponResponse
+        @field(resolver: "CouponMutator@verify")
+    restoreCoupon(id: ID!): Coupon @restore @can(ability: "super_admin")
+    approveCoupon(id: ID!): Coupon
+        @field(resolver: "CouponMutator@approveCoupon")
+        @can(ability: "super_admin")
+    disapproveCoupon(id: ID!): Coupon
+        @field(resolver: "CouponMutator@disApproveCoupon")
+        @can(ability: "super_admin")
+}

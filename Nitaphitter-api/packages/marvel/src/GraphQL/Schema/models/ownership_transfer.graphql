@@ -1,0 +1,77 @@
+extend type Query {
+    ownershipTransfers(
+        search: String
+        orderBy: String
+        sortedBy: String
+        language: String
+        searchJoin: String = "AND"
+        type: String
+        text: String @where(operator: "like", key: "transaction_identifier")
+    ): [OwnershipTransfer]
+        @paginate(
+            builder: "Marvel\\GraphQL\\Queries\\OwnershipTransferQuery@fetchOwnershipTransfer"
+            defaultCount: 15
+        )
+    ownershipTransfer(
+        transaction_identifier: String
+        request_view_type: String
+    ): OwnershipTransfer
+        @field(
+            resolver: "Marvel\\GraphQL\\Queries\\OwnershipTransferQuery@fetchSingleOwnershipTransfer"
+        )
+}
+type OrderInfo {
+    pending: Int
+    processing: Int
+    complete: Int
+    cancelled: Int
+    refunded: Int
+    failed: Int
+    localFacility: Int
+    outForDelivery: Int
+}
+type PaymentInfo {
+    account: String
+    name: String
+    email: String
+    bank: String
+}
+
+type newTypw {
+    id: ID!
+    admin_commission_rate: Float
+    shop: Shop @belongsTo
+    total_earnings: Float
+    withdrawn_amount: Float
+    current_balance: Float
+    payment_info: String
+}
+type OwnershipTransfer {
+    id: ID!
+    transaction_identifier: String
+    previous_owner: User
+    current_owner: User
+    sender: User
+    message: String
+    created_by: ID
+    status: String
+    shop: Shop
+    order_info: OrderInfo
+    balance_info: newTypw
+    refund_info: [Refund]
+    withdrawal_info: [Withdraw]
+    updated_at: DateTime
+}
+
+input UpdateOwnershipTransferInput {
+    id: ID!
+    status: String!
+}
+
+extend type Mutation {
+    updateOwnershipTransfer(
+        input: UpdateOwnershipTransferInput! @spread
+    ): OwnershipTransfer @field(resolver: "OwnershipMutator@updateOwnership")
+    deleteOwnershipTransfer(id: ID!): OwnershipTransfer
+        @field(resolver: "OwnershipMutator@deleteOwnership")
+}

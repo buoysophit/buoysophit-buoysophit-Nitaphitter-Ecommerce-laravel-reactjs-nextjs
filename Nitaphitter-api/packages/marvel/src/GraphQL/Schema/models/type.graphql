@@ -1,0 +1,212 @@
+extend type Query {
+    types(
+        text: String @where(operator: "like", key: "name")
+        language: String @eq
+        orderBy: _ @orderBy(columns: ["updated_at", "created_at", "name"])
+    ): [Type!]! @all
+    type(id: ID @eq, slug: String @eq, language: String @eq): Type @find
+}
+
+type Type {
+    id: ID!
+    name: String!
+    language: String
+    translated_languages: [String]
+    slug: String!
+    banners: [Banner] @hasMany
+    promotional_sliders: [Attachment]
+    settings: TypeSettings
+    icon: String
+    created_at: DateTime
+    updated_at: DateTime
+}
+
+input CompactTypeProductCardInput {
+    productCard: String
+}
+input CompactTypeSettingsInput {
+    settings: CompactTypeProductCardInput
+}
+
+input CompactProductInput {
+    id: String
+    slug: String
+    name: String
+    image: AttachmentInput
+    regular_price: Float
+    sale_price: Float
+    min_price: Float
+    max_price: Float
+    product_type: String
+    quantity: Int
+    is_external: Boolean
+    unit: String
+    price: Float
+    external_product_url: String
+    status: String
+    type: CompactTypeSettingsInput
+}
+
+input CompactBestSellingInput {
+    enable: Boolean
+    title: String
+}
+input CompactDemoBestSellingInput {
+    enable: Boolean
+    title: String
+}
+input CompactDemoPopularProductsInput {
+    enable: Boolean
+    title: String
+}
+input CompactDemoCategoryInput {
+    enable: Boolean
+    title: String
+}
+input CompactDemoHandpickedProductsInput {
+    enable: Boolean
+    title: String
+    enableSlider: Boolean
+    products: [CompactProductInput]
+}
+input CompactDemoNewArrivalInput {
+    enable: Boolean
+    title: String
+}
+input CompactDemoAuthorsInput {
+    enable: Boolean
+    title: String
+}
+input CompactDemoManufacturesInput {
+    enable: Boolean
+    title: String
+}
+
+type CompactTypeProductCard {
+    productCard: String
+}
+type CompactTypeSettings {
+    settings: CompactTypeProductCard
+}
+
+type CompactProduct {
+    id: String
+    slug: String
+    name: String
+    image: Attachment
+    regular_price: Float
+    sale_price: Float
+    min_price: Float
+    max_price: Float
+    product_type: String
+    quantity: Int
+    is_external: Boolean
+    unit: String
+    price: Float
+    external_product_url: String
+    status: String
+    type: CompactTypeSettings
+}
+type CompactDemoBestSelling {
+    enable: Boolean
+    title: String
+}
+type CompactDemoPopularProducts {
+    enable: Boolean
+    title: String
+}
+type CompactDemoCategory {
+    enable: Boolean
+    title: String
+}
+type CompactDemoHandpickedProducts {
+    enable: Boolean
+    title: String
+    enableSlider: Boolean
+    products: [CompactProduct]
+}
+type CompactDemoNewArrival {
+    enable: Boolean
+    title: String
+}
+type CompactDemoAuthors {
+    enable: Boolean
+    title: String
+}
+type CompactDemoManufactures {
+    enable: Boolean
+    title: String
+}
+
+type TypeSettings {
+    isHome: Boolean
+    layoutType: String
+    productCard: String
+    bestSelling: CompactDemoBestSelling
+    popularProducts: CompactDemoPopularProducts
+    category: CompactDemoCategory
+    handpickedProducts: CompactDemoHandpickedProducts
+    newArrival: CompactDemoNewArrival
+    authors: CompactDemoAuthors
+    manufactures: CompactDemoManufactures
+}
+
+input TypeSettingsInput {
+    isHome: Boolean
+    layoutType: String
+    productCard: String
+    bestSelling: CompactBestSellingInput
+    popularProducts: CompactDemoPopularProductsInput
+    category: CompactDemoCategoryInput
+    handpickedProducts: CompactDemoHandpickedProductsInput
+    newArrival: CompactDemoNewArrivalInput
+    authors: CompactDemoAuthorsInput
+    manufactures: CompactDemoManufacturesInput
+}
+
+type Banner {
+    id: Int
+    title: String
+    description: String
+    image: Attachment
+}
+
+input BannerInputType {
+    title: String
+    description: String
+        @rules(
+            apply: ["max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    image: AttachmentInput
+}
+
+input CreateTypeInput {
+    name: String!
+    banners: [BannerInputType]
+    promotional_sliders: [AttachmentInput]
+    settings: TypeSettingsInput
+    slug: String
+    language: String!
+    icon: String
+}
+input UpdateTypeInput {
+    id: ID!
+    language: String
+    name: String!
+    slug: String
+    banners: [BannerInputType]
+    promotional_sliders: [AttachmentInput]
+    settings: TypeSettingsInput
+    icon: String
+}
+
+extend type Mutation {
+    deleteType(id: ID!): Type @delete @can(ability: "super_admin")
+    updateType(input: UpdateTypeInput! @spread): Type
+        @field(resolver: "TypeMutator@updateType")
+        @can(ability: "super_admin")
+    createType(input: CreateTypeInput! @spread): Type
+        @field(resolver: "TypeMutator@storeType")
+        @can(ability: "super_admin")
+}

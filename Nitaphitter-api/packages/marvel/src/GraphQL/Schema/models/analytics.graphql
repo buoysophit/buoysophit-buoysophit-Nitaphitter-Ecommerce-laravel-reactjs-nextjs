@@ -1,0 +1,112 @@
+extend type Query {
+    analytics: Analytics @field(resolver: "AnalyticsQuery@analytics")
+    popularProducts(
+        limit: Int
+        shop_id: ID
+        range: Int
+        type_id: ID
+        type_slug: String
+    ): [Product!]! @field(resolver: "AnalyticsQuery@popularProducts")
+    bestSellingProducts(
+        limit: Int
+        shop_id: ID
+        range: Int
+        type_id: ID
+        type_slug: String
+    ): [Product!]! @field(resolver: "AnalyticsQuery@bestSellingProducts")
+    categoryWiseProduct(
+        limit: Int!
+        language: String!
+        searchJoin: String = "and"
+        search: String
+    ): [CategoryWiseProduct!]!
+        @field(resolver: "AnalyticsQuery@categoryWiseProduct")
+    categoryWiseProductSale(
+        limit: Int!
+        language: String!
+        searchJoin: String = "and"
+        search: String
+    ): [CategoryWiseProductSale!]!
+        @field(resolver: "AnalyticsQuery@categoryWiseProductSale")
+    lowStockProducts(
+        limit: Int!
+        language: String!
+        searchJoin: String = "and"
+        search: String
+        type_id: ID
+        shop_id: ID
+    ): [Product!]! @field(resolver: "AnalyticsQuery@lowStockProducts")
+    topRatedProducts(
+        limit: Int!
+        language: String!
+        searchJoin: String = "and"
+        search: String
+    ): [TopRatedProduct!]! @field(resolver: "AnalyticsQuery@topRatedProducts")
+}
+
+type TotalYearSaleByMonth {
+    total: Float
+    month: String
+}
+
+type OrderByStatus {
+    pending: Int
+    processing: Int
+    complete: Int
+    cancelled: Int
+    refunded: Int
+    failed: Int
+    localFacility: Int
+    outForDelivery: Int
+}
+type Analytics {
+    totalRevenue: Float
+    totalRefunds: Float
+    totalShops: Int
+    totalVendors: Int
+    todaysRevenue: Float
+    totalOrders: Int
+    newCustomers: Int
+    yearlyTotalOrderByStatus: OrderByStatus
+    monthlyTotalOrderByStatus: OrderByStatus
+    weeklyTotalOrderByStatus: OrderByStatus
+    todayTotalOrderByStatus: OrderByStatus
+    totalYearSaleByMonth: [TotalYearSaleByMonth]
+}
+
+type Image {
+    id: String
+    original: String
+    thumbnail: String
+}
+
+type TopRatedProduct {
+    id: ID
+    name: String
+    slug: String
+    regular_price: Float
+    sale_price: Float
+    min_price: Float
+    max_price: Float
+    product_type: String
+    description: String
+    type_id: ID
+    type_slug: String
+    total_rating: Int
+    rating_count: Int
+    actual_rating: Float
+    image: Image
+}
+
+type CategoryWiseProduct {
+    category_id: ID
+    category_name: String
+    shop_name: String
+    product_count: Int
+}
+type CategoryWiseProductSale {
+    category_id: ID
+    category_name: String
+    shop_name: String
+    total_sales: Int
+}

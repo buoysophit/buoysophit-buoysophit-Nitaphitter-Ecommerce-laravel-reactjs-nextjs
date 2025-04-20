@@ -1,0 +1,46 @@
+extend type Query {
+    notifyLogs(
+        searchJoin: String = "AND"
+        notify_type: String
+        orderBy: String
+        sortedBy: String
+        search: String
+        receiver: ID
+    ): [NotifyLogs!]!
+        @paginate(
+            builder: "Marvel\\GraphQL\\Queries\\NotifyLogQuery@fetchNotifyLogs"
+            defaultCount: 15
+        )
+    notifyLog(id: ID @eq): NotifyLogs @find
+}
+
+type NotifyLogs {
+    id: ID!
+    receiver: ID!
+    sender: ID!
+    notify_type: String!
+    notify_receiver_type: String!
+    is_read: Boolean!
+    notify_tracker: String
+    notify_text: String!
+    receiver_user: User @belongsTo
+    sender_user: User @belongsTo
+    created_at: String!
+    updated_at: String
+    deleted_at: String
+}
+
+input UpdateNotifyLogInput {
+    set_all_read: Boolean
+    notify_type: String!
+    receiver: ID!
+}
+
+extend type Mutation {
+    readNotifyLogs(id: ID! @spread): NotifyLogs
+        @field(resolver: "NotifyLogMutator@readNotifyLogs")
+    notifyLogAllRead(input: UpdateNotifyLogInput! @spread): [NotifyLogs]!
+        @field(resolver: "NotifyLogMutator@notifyLogAllRead")
+    deleteNotifyLog(id: ID!): NotifyLogs
+        @field(resolver: "NotifyLogMutator@deleteNotifyLogs")
+}

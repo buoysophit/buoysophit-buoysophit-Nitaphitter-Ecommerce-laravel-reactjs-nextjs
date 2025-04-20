@@ -1,0 +1,48 @@
+extend type Query {
+    refundReasons(
+        search: String
+        orderBy: String
+        sortedBy: String
+        language: String
+        searchJoin: String = "AND"
+    ): [RefundReason]
+        @paginate(
+            builder: "Marvel\\GraphQL\\Queries\\RefundReasonQuery@fetchRefundReasons"
+            defaultCount: 15
+        )
+    refundReason(id: ID @eq, slug: String @eq, language: String @eq): RefundReason @find
+}
+
+type RefundReason {
+    id: ID!
+    name: String!
+    slug: String!
+    language: String
+    translated_languages: [String]
+    created_at: DateTime
+    updated_at: DateTime
+}
+
+input CreateRefundReasonInput {
+    name: String! @rules(apply: ["required"])
+    slug: String
+    language: String
+}
+input UpdateRefundReasonInput {
+    id: ID!
+    name: String! @rules(apply: ["required"])
+    slug: String
+    language: String
+}
+
+extend type Mutation {
+    createRefundReason(input: CreateRefundReasonInput! @spread): RefundReason
+        @field(resolver: "RefundReasonMutator@storeRefundReason")
+        @can(ability: "super_admin")
+    updateRefundReason(input: UpdateRefundReasonInput! @spread): RefundReason
+        @field(resolver: "RefundReasonMutator@updateRefundReason")
+        @can(ability: "super_admin")
+    deleteRefundReason(id: ID!): RefundReason
+        @field(resolver: "RefundReasonMutator@deleteRefundReason")
+        @can(ability: "super_admin")
+}

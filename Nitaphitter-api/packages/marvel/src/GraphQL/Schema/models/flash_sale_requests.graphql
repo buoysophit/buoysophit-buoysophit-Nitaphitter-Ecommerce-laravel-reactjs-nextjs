@@ -1,0 +1,74 @@
+extend type Query {
+    flashSaleRequests(
+        search: String
+        orderBy: String
+        sortedBy: String
+        language: String
+        searchJoin: String = "AND"
+    ): [FlashSaleRequests!]!
+        @paginate(
+            builder: "Marvel\\GraphQL\\Queries\\FlashSaleRequestQuery@fetchFlashSaleRequests"
+            defaultCount: 15
+        )
+    flashSaleRequest(id: ID @eq, language: String @eq): FlashSaleRequests @find
+    fetchRequestedProducts(
+        vendor_request_id: ID
+        language: String @eq
+    ): [Product]!
+        @paginate(
+            builder: "Marvel\\GraphQL\\Queries\\FlashSaleRequestQuery@fetchFlashSaleRequestedProducts"
+            defaultCount: 15
+        )
+}
+
+type FlashSaleRequests {
+    id: ID!
+    title: String!
+    flash_sale_id: ID!
+    request_status: Boolean
+    note: String
+    language: String
+    flash_sale: FlashSale @belongsTo
+    deleted_at: String
+    created_at: String
+    updated_at: String
+}
+
+input CreateFlashSaleRequestInput {
+    title: String! @rules(apply: ["required"])
+    flash_sale_id: String @rules(apply: ["required"])
+    note: String
+    language: String
+    requested_product_ids: [ID]
+}
+
+input UpdateFlashSaleRequestInput {
+    id: ID!
+    title: String! @rules(apply: ["required"])
+    flash_sale_id: String @rules(apply: ["required"])
+    note: String
+    language: String
+    requested_product_ids: [ID]
+}
+
+extend type Mutation {
+    createFlashSaleRequest(
+        input: CreateFlashSaleRequestInput! @spread
+    ): FlashSaleRequests
+        @field(resolver: "FlashSaleRequestsMutator@storeFlashSaleRequest")
+        @can(ability: "store_owner")
+    updateFlashSaleRequest(
+        input: UpdateFlashSaleRequestInput! @spread
+    ): FlashSaleRequests
+        @field(resolver: "FlashSaleRequestsMutator@updateFlashSaleRequest")
+        @can(ability: "store_owner")
+    deleteFlashSaleRequest(id: ID!): FlashSaleRequests
+        @field(resolver: "FlashSaleRequestsMutator@deleteFlashSaleRequest")
+        @can(ability: "store_owner")
+    approveFlashSaleRequest(id: ID!): FlashSaleRequests
+        @field(resolver: "FlashSaleRequestsMutator@approveFlashSaleRequest")
+        @can(ability: "super_admin")
+    disApproveFlashSaleRequest(id: ID!): FlashSaleRequests
+        @field(resolver: "FlashSaleRequestsMutator@disApproveFlashSaleRequest")
+        @can(ability: "super_admin")
+}

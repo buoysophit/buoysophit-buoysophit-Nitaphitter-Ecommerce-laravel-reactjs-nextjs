@@ -1,0 +1,22 @@
+type ContactResponse {
+    message: String
+    success: Boolean
+}
+
+input ContactInput {
+    subject: String!
+    email: String!
+    name: String!
+    isChecked: Boolean
+    description: String!
+        @rules(
+            apply: ["max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    emailTo: String
+}
+
+extend type Mutation {
+    contactUs(input: ContactInput! @spread): ContactResponse
+        @field(resolver: "AuthMutator@contactAdmin")
+}

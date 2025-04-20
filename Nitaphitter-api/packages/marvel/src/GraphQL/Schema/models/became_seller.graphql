@@ -1,0 +1,211 @@
+extend type Query {
+    becameSeller(language: String): BecomeSellerWithCommission!
+        @field(
+            resolver: "Marvel\\GraphQL\\Queries\\BecameSellerQuery@fetchBecameSeller"
+        )
+}
+
+type CommonFieldType {
+    title: String
+    description: String
+}
+
+type BannerType {
+    image: Attachment
+    title: String
+    description: String
+    newsTickerURL: String
+    newsTickerTitle: String
+    button1Link: String
+    button1Name: String
+    button2Link: String
+    button2Name: String
+}
+
+type MultiCommonField {
+    image: Attachment
+    title: String
+    description: String
+    buttonLink: String
+    buttonName: String
+    button2Link: String
+    button2Name: String
+}
+
+type guidelineItems {
+    link: String
+    title: String
+}
+type userStories {
+    link: String
+    title: String
+    description: String
+    thumbnail: Attachment
+}
+
+type sellingStepsItem {
+    image: Attachment
+    title: String
+    description: String
+}
+type purposeItems {
+    title: String
+    description: String
+    icon: icon
+}
+type icon {
+    value: String
+}
+type BecameSellerOptions {
+    banner: BannerType
+    faqTitle: String
+    faqItems: [CommonFieldType]
+    faqDescription: String
+    contact: CommonFieldType
+    sellingStepsTitle: String
+    sellingStepsItem: [sellingStepsItem]
+    guidelineTitle: String
+    guidelineItems: [guidelineItems]
+    commissionTitle: String
+    commissionDescription: String
+    purposeTitle: String
+    purposeDescription: String
+    purposeItems: [purposeItems]
+    userStories: [userStories]
+    sellerOpportunity: MultiCommonField
+    dashboard: MultiCommonField
+    guidelineDescription: String
+    isMultiCommissionRate: Boolean
+    sellingStepsDescription: String
+    userStoryTitle: String
+    userStoryDescription: String
+    defaultCommissionRate: Int
+    defaultCommissionDetails: String
+}
+
+type BecameSeller {
+    id: ID
+    language: String
+    page_options: BecameSellerOptions
+}
+
+type BecomeSellerWithCommission {
+    page_options: BecameSeller
+    commissions: [Commission]
+}
+
+type Commission {
+    id: ID
+    level: String
+    sub_level: String
+    description: String
+    min_balance: Float
+    max_balance: Float
+    commission: Float
+    image: Attachment
+    language: String
+}
+
+input CommonFieldTypeInput {
+    title: String
+    description: String
+}
+input GuidelineItemsInput {
+    link: String
+    title: String
+}
+
+input BannerInput {
+    title: String
+    description: String
+    newsTickerTitle: String
+    newsTickerURL: String
+    button1Name: String
+    button1Link: String
+    button2Name: String
+    button2Link: String
+    image: AttachmentInput
+}
+
+input UserStoriesInput {
+    link: String
+    title: String
+    description: String
+    thumbnail: AttachmentInput
+}
+
+input MultiCommonFieldInput {
+    title: String
+    description: String
+    buttonName: String
+    buttonLink: String
+    button2Name: String
+    button2Link: String
+    image: AttachmentInput
+}
+
+input SellingStepsItemInput {
+    image: AttachmentInput
+    title: String
+    description: String
+}
+
+input PurposeItemsInput {
+    title: String
+    description: String
+    icon: iconInput
+}
+
+input iconInput {
+    value: String
+}
+
+input BecameSellerOptionsInput {
+    banner: BannerInput
+    faqTitle: String!
+    faqDescription: String
+    faqItems: [CommonFieldTypeInput]!
+    sellingStepsTitle: String!
+    sellingStepsItem: [SellingStepsItemInput]
+    purposeTitle: String!
+    purposeDescription: String
+    purposeItems: [PurposeItemsInput]
+    guidelineTitle: String
+    guidelineDescription: String
+    guidelineItems: [GuidelineItemsInput]
+    commissionTitle: String!
+    commissionDescription: String!
+    userStoryTitle: String
+    userStoryDescription: String
+    userStories: [UserStoriesInput]
+    sellerOpportunity: MultiCommonFieldInput
+    dashboard: MultiCommonFieldInput
+    isMultiCommissionRate: Boolean
+    sellingStepsDescription: String
+    contact: CommonFieldTypeInput
+    defaultCommissionDetails: String
+    defaultCommissionRate: Int
+}
+
+input CommissionInput {
+    id: ID
+    level: String!
+    sub_level: String!
+    description: String!
+    min_balance: Float!
+    max_balance: Float!
+    commission: Float!
+    image: AttachmentInput
+}
+
+input BecomeSellerWithCommissionInput {
+    language: String
+    page_options: BecameSellerOptionsInput
+    commissions: [CommissionInput]
+}
+
+extend type Mutation {
+    updateBecameSeller(
+        input: BecomeSellerWithCommissionInput! @spread
+    ): BecomeSellerWithCommission! @field(resolver: "BecameSellerMutator@store")
+}

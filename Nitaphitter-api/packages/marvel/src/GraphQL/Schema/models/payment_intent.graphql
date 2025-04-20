@@ -1,0 +1,31 @@
+extend type Query {
+    getPaymentIntent(
+        tracking_number: ID!
+        payment_gateway: String!
+        recall_gateway: Boolean!
+    ): PaymentIntent
+        @field(
+            resolver: "Marvel\\GraphQL\\Queries\\PaymentIntentQuery@getPaymentIntent"
+        )
+}
+
+type PaymentIntent {
+    id: ID
+    order_id: ID
+    payment_gateway: String
+    tracking_number: String
+    payment_intent_info: PaymentIntentInfo
+}
+
+input SavePaymentMethodInput {
+    method_key: String!
+    payment_intent: String
+    save_card: Boolean
+    tracking_number: String
+    payment_gateway: String
+}
+
+extend type Mutation {
+    savePaymentMethod(input: SavePaymentMethodInput! @spread): Card
+        @field(resolver: "PaymentIntentMutator@savePaymentMethod")
+}

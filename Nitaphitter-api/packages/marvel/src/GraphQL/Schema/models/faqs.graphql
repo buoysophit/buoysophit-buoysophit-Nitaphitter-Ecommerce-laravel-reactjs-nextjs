@@ -1,0 +1,71 @@
+extend type Query {
+    faqs(
+        search: String
+        orderBy: String
+        sortedBy: String
+        language: String
+        searchJoin: String = "AND"
+        shop_id: ID
+        faq_type: String
+        issued_by: String
+    ): [Faqs!]!
+        @paginate(
+            builder: "Marvel\\GraphQL\\Queries\\FaqQuery@fetchFaqs"
+            defaultCount: 15
+        )
+    faq(id: ID @eq, slug: String @eq, language: String @eq): Faqs @find
+}
+
+type Faqs {
+    id: ID
+    shop_id: ID
+    faq_title: String
+    slug: String
+    faq_description: String
+    faq_type: String
+    issued_by: String
+    shop: Shop
+    language: String
+    translated_languages: [String]
+}
+
+input CreateFaqInput {
+    faq_title: String! @rules(apply: ["required", "max:255"])
+    faq_description: String
+        @rules(
+            apply: ["required", "max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    slug: String
+    user_id: ID
+    shop_id: ID
+    faq_type: String
+    issued_by: String
+    language: String
+}
+
+input UpdateFaqInput {
+    id: ID!
+    faq_title: String! @rules(apply: ["required", "max:255"])
+    faq_description: String
+        @rules(
+            apply: ["required", "max:10000"]
+            messages: { max: "Description should be max 10000 character" }
+        )
+    slug: String
+    user_id: ID
+    shop_id: ID
+    faq_type: String
+    issued_by: String
+    language: String
+}
+
+extend type Mutation {
+    createFaq(input: CreateFaqInput! @spread): Faqs
+        @field(resolver: "FaqMutator@storeFaq")
+    # @can(ability: "super_admin")
+    updateFaq(input: UpdateFaqInput! @spread): Faqs
+        @field(resolver: "FaqMutator@updateFaq")
+    # @can(ability: "super_admin")
+    deleteFaq(id: ID!): Faqs @field(resolver: "FaqMutator@deleteFaq")
+}

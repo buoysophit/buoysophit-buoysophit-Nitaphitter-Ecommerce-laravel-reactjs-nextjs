@@ -1,0 +1,380 @@
+{
+  "..\\components\\dashboard\\admin.tsx -> @/components/dashboard/widgets/box/widget-order-by-status": {
+    "id": "..\\components\\dashboard\\admin.tsx -> @/components/dashboard/widgets/box/widget-order-by-status",
+    "files": [
+      "static/chunks/src_components_dashboard_widgets_box_widget-order-by-status_tsx.js"
+    ]
+  },
+  "..\\components\\dashboard\\admin.tsx -> @/components/dashboard/widgets/box/widget-top-rate-product": {
+    "id": "..\\components\\dashboard\\admin.tsx -> @/components/dashboard/widgets/box/widget-top-rate-product",
+    "files": [
+      "static/chunks/src_components_dashboard_widgets_box_widget-top-rate-product_tsx-_59ff1.js"
+    ]
+  },
+  "..\\components\\dashboard\\admin.tsx -> @/components/dashboard/widgets/table/widget-product-count-by-category": {
+    "id": "..\\components\\dashboard\\admin.tsx -> @/components/dashboard/widgets/table/widget-product-count-by-category",
+    "files": [
+      "static/chunks/src_components_dashboard_widgets_table_widget-product-count-by-category_tsx-_590b1.js"
+    ]
+  },
+  "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/shops/message": {
+    "id": "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/shops/message",
+    "files": [
+      "static/chunks/src_components_dashboard_shops_message_tsx.js"
+    ]
+  },
+  "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/shops/shops": {
+    "id": "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/shops/shops",
+    "files": [
+      "static/chunks/src_components_dashboard_shops_shops_tsx.js"
+    ]
+  },
+  "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/shops/store-notices": {
+    "id": "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/shops/store-notices",
+    "files": [
+      "static/chunks/src_components_dashboard_shops_store-notices_tsx.js"
+    ]
+  },
+  "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/widgets/box/widget-order-by-status": {
+    "id": "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/widgets/box/widget-order-by-status",
+    "files": [
+      "static/chunks/src_components_dashboard_widgets_box_widget-order-by-status_tsx.js"
+    ]
+  },
+  "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/widgets/box/widget-top-rate-product": {
+    "id": "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/widgets/box/widget-top-rate-product",
+    "files": [
+      "static/chunks/src_components_dashboard_widgets_box_widget-top-rate-product_tsx-_59ff0.js"
+    ]
+  },
+  "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/widgets/table/widget-product-count-by-category": {
+    "id": "..\\components\\dashboard\\owner.tsx -> @/components/dashboard/widgets/table/widget-product-count-by-category",
+    "files": [
+      "static/chunks/src_components_dashboard_widgets_table_widget-product-count-by-category_tsx-_590b0.js"
+    ]
+  },
+  "..\\components\\layouts\\app.tsx -> @/components/layouts/admin": {
+    "id": "..\\components\\layouts\\app.tsx -> @/components/layouts/admin",
+    "files": [
+      "static/chunks/src_components_layouts_admin_index_tsx.js"
+    ]
+  },
+  "..\\components\\layouts\\app.tsx -> @/components/layouts/owner": {
+    "id": "..\\components\\layouts\\app.tsx -> @/components/layouts/owner",
+    "files": [
+      "static/chunks/src_components_layouts_owner_index_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\chart.tsx -> react-apexcharts": {
+    "id": "..\\components\\ui\\chart.tsx -> react-apexcharts",
+    "files": [
+      "static/chunks/node_modules_react-apexcharts_dist_react-apexcharts_min_js.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/address/create-or-update": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/address/create-or-update",
+    "files": [
+      "static/chunks/src_components_address_create-or-update_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/attribute/attribute-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/attribute/attribute-delete-view",
+    "files": [
+      "static/chunks/src_components_attribute_attribute-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/attribute/attribute-import-export": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/attribute/attribute-import-export",
+    "files": [
+      "static/chunks/src_components_attribute_attribute-import-export_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/author/author-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/author/author-delete-view",
+    "files": [
+      "static/chunks/src_components_author_author-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/category/category-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/category/category-delete-view",
+    "files": [
+      "static/chunks/src_components_category_category-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/checkout/contact/add-or-update": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/checkout/contact/add-or-update",
+    "files": [
+      "static/chunks/src_components_checkout_contact_add-or-update_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/checkout/customer/select-customer": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/checkout/customer/select-customer",
+    "files": [
+      "static/chunks/src_components_checkout_customer_select-customer_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/coupon/approve-coupon-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/coupon/approve-coupon-view",
+    "files": [
+      "static/chunks/src_components_coupon_approve-coupon-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/coupon/coupon-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/coupon/coupon-delete-view",
+    "files": [
+      "static/chunks/src_components_coupon_coupon-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/coupon/disapprove-coupon-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/coupon/disapprove-coupon-view",
+    "files": [
+      "static/chunks/src_components_coupon_disapprove-coupon-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/faqs/faq-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/faqs/faq-delete-view",
+    "files": [
+      "static/chunks/src_components_faqs_faq-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/flash-sale/flash-sale-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/flash-sale/flash-sale-delete-view",
+    "files": [
+      "static/chunks/src_components_flash-sale_flash-sale-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/flash-sale/vendor-request/approve-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/flash-sale/vendor-request/approve-view",
+    "files": [
+      "static/chunks/src_components_flash-sale_vendor-request_approve-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/flash-sale/vendor-request/disapprove-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/flash-sale/vendor-request/disapprove-view",
+    "files": [
+      "static/chunks/src_components_flash-sale_vendor-request_disapprove-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/flash-sale/vendor-request/flash-sale-vendor-request-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/flash-sale/vendor-request/flash-sale-vendor-request-delete-view",
+    "files": [
+      "static/chunks/src_components_flash-sale_vendor-request_flash-sale-vendor-request-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/group/group-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/group/group-delete-view",
+    "files": [
+      "static/chunks/src_components_group_group-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/layouts/topbar/search-modal": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/layouts/topbar/search-modal",
+    "files": [
+      "static/chunks/src_components_layouts_topbar_search-modal_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/manufacturer/manufacturer-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/manufacturer/manufacturer-delete-view",
+    "files": [
+      "static/chunks/src_components_manufacturer_manufacturer-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/message/compose-message": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/message/compose-message",
+    "files": [
+      "static/chunks/src_components_message_compose-message_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/openAI/openAI.modal": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/openAI/openAI.modal",
+    "files": [
+      "static/chunks/src_components_openAI_openAI_modal_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/ownership-transfer/ownership-transfer-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/ownership-transfer/ownership-transfer-delete-view",
+    "files": [
+      "static/chunks/src_components_ownership-transfer_ownership-transfer-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/product/import-export-modal": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/product/import-export-modal",
+    "files": [
+      "static/chunks/src_components_product_import-export-modal_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/product/product-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/product/product-delete-view",
+    "files": [
+      "static/chunks/src_components_product_product-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/product/variation/variation": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/product/variation/variation",
+    "files": [
+      "static/chunks/src_components_product_variation_variation_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/question/question-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/question/question-delete-view",
+    "files": [
+      "static/chunks/src_components_question_question-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/question/question-reply-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/question/question-reply-view",
+    "files": [
+      "static/chunks/src_components_question_question-reply-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/refund-policy/refund-policy-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/refund-policy/refund-policy-delete-view",
+    "files": [
+      "static/chunks/src_components_refund-policy_refund-policy-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/refund-reason/refund-reason-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/refund-reason/refund-reason-delete-view",
+    "files": [
+      "static/chunks/src_components_refund-reason_refund-reason-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/refund/refund-confirmation-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/refund/refund-confirmation-view",
+    "files": [
+      "static/chunks/src_components_refund_refund-confirmation-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/refund/refund-image-modal": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/refund/refund-image-modal",
+    "files": [
+      "static/chunks/src_components_refund_refund-image-modal_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/reviews/abuse-report": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/reviews/abuse-report",
+    "files": [
+      "static/chunks/src_components_reviews_abuse-report_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/reviews/acccpt-report-confirmation": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/reviews/acccpt-report-confirmation",
+    "files": [
+      "static/chunks/src_components_reviews_acccpt-report-confirmation_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/reviews/decline-report-confirmation": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/reviews/decline-report-confirmation",
+    "files": [
+      "static/chunks/src_components_reviews_decline-report-confirmation_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/reviews/review-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/reviews/review-delete-view",
+    "files": [
+      "static/chunks/src_components_reviews_review-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/reviews/review-image-modal": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/reviews/review-image-modal",
+    "files": [
+      "static/chunks/src_components_reviews_review-image-modal_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shipping/shipping-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shipping/shipping-delete-view",
+    "files": [
+      "static/chunks/src_components_shipping_shipping-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shop-single/description-modal": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shop-single/description-modal",
+    "files": [
+      "static/chunks/src_components_shop-single_description-modal_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shop/approve-shop-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shop/approve-shop-view",
+    "files": [
+      "static/chunks/src_components_shop_approve-shop-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shop/disapprove-shop-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shop/disapprove-shop-view",
+    "files": [
+      "static/chunks/src_components_shop_disapprove-shop-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shop/staff-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shop/staff-delete-view",
+    "files": [
+      "static/chunks/src_components_shop_staff-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shop/transfer-shop-ownership-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/shop/transfer-shop-ownership-view",
+    "files": [
+      "static/chunks/src_components_shop_transfer-shop-ownership-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/tag/tag-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/tag/tag-delete-view",
+    "files": [
+      "static/chunks/src_components_tag_tag-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/tax/tax-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/tax/tax-delete-view",
+    "files": [
+      "static/chunks/src_components_tax_tax-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/terms-and-conditions/approve-term-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/terms-and-conditions/approve-term-view",
+    "files": [
+      "static/chunks/src_components_terms-and-conditions_approve-term-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/terms-and-conditions/disapprove-term-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/terms-and-conditions/disapprove-term-view",
+    "files": [
+      "static/chunks/src_components_terms-and-conditions_disapprove-term-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/terms-and-conditions/terms-and-conditions-delete-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/terms-and-conditions/terms-and-conditions-delete-view",
+    "files": [
+      "static/chunks/src_components_terms-and-conditions_terms-and-conditions-delete-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/user/make-admin-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/user/make-admin-view",
+    "files": [
+      "static/chunks/src_components_user_make-admin-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/user/user-ban-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/user/user-ban-view",
+    "files": [
+      "static/chunks/src_components_user_user-ban-view_tsx.js"
+    ]
+  },
+  "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/user/user-wallet-points-add-view": {
+    "id": "..\\components\\ui\\modal\\managed-modal.tsx -> @/components/user/user-wallet-points-add-view",
+    "files": [
+      "static/chunks/src_components_user_user-wallet-points-add-view_tsx.js"
+    ]
+  },
+  "index.tsx -> @/components/dashboard/admin": {
+    "id": "index.tsx -> @/components/dashboard/admin",
+    "files": [
+      "static/chunks/src_components_dashboard_admin_tsx.js"
+    ]
+  },
+  "index.tsx -> @/components/dashboard/owner": {
+    "id": "index.tsx -> @/components/dashboard/owner",
+    "files": [
+      "static/chunks/src_components_dashboard_owner_tsx.js"
+    ]
+  }
+}

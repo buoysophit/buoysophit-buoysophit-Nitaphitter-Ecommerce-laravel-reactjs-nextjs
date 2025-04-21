@@ -1,0 +1,209 @@
+/* react rich text editor front end design */
+.react-editor-description .ql-font-Roboto {
+  font-family: 'Roboto', sans-serif;
+}
+.react-editor-description .ql-font-Raleway {
+  font-family: 'Raleway', sans-serif;
+}
+.react-editor-description .ql-font-Lato {
+  font-family: 'Lato', sans-serif;
+}
+.react-editor-description .ql-font-Rubik {
+  font-family: 'Rubik', sans-serif;
+}
+.react-editor-description .ql-font-OpenSans {
+  font-family: 'Open Sans', sans-serif;
+}
+.react-editor-description h1,
+.react-editor-description h2,
+.react-editor-description h3,
+.react-editor-description h4,
+.react-editor-description h5,
+.react-editor-description h6 {
+  @apply leading-[150%];
+}
+.react-editor-description h1 {
+  @apply text-h1;
+}
+
+.react-editor-description h2 {
+  @apply text-h2;
+}
+
+.react-editor-description h3 {
+  @apply text-h3;
+}
+
+.react-editor-description h4 {
+  @apply text-h4;
+}
+
+.react-editor-description h5 {
+  @apply text-h5;
+}
+
+.react-editor-description h6 {
+  @apply text-h6;
+}
+
+.react-editor-description blockquote {
+  @apply p-4 my-4 border-s-4 border-gray-300 bg-gray-50;
+}
+
+.react-editor-description .ql-video {
+  @apply w-full h-full aspect-video;
+}
+
+.react-editor-description .ql-video.ql-align-center {
+  @apply mx-auto;
+}
+.react-editor-description .ql-video.ql-align-right {
+  @apply ml-auto;
+}
+
+.react-editor-description a {
+  @apply text-heading underline;
+}
+
+.react-editor-description pre {
+  @apply whitespace-pre-wrap my-1 py-1 px-2.5 rounded;
+}
+
+.react-editor-description pre.ql-syntax {
+  @apply bg-[#23241f] text-[#f8f8f2] overflow-visible;
+}
+
+.react-editor-description ol,
+.react-editor-description ul {
+  list-style: revert;
+  @apply pl-6 list-inside;
+}
+
+.react-editor-description .ql-indent-1:not(.ql-direction-rtl) {
+  padding-left: 3rem;
+}
+.react-editor-description li.ql-indent-1:not(.ql-direction-rtl) {
+  padding-left: 4.5rem;
+}
+.react-editor-description .ql-indent-1.ql-direction-rtl.ql-align-right {
+  padding-right: 3rem;
+}
+.react-editor-description li.ql-indent-1.ql-direction-rtl.ql-align-right {
+  padding-right: 4.5rem;
+}
+.react-editor-description .ql-indent-2:not(.ql-direction-rtl) {
+  padding-left: 6rem;
+}
+.react-editor-description li.ql-indent-2:not(.ql-direction-rtl) {
+  padding-left: 7.5rem;
+}
+.react-editor-description .ql-indent-2.ql-direction-rtl.ql-align-right {
+  padding-right: 6rem;
+}
+.react-editor-description li.ql-indent-2.ql-direction-rtl.ql-align-right {
+  padding-right: 7.5rem;
+}
+.react-editor-description .ql-indent-3:not(.ql-direction-rtl) {
+  padding-left: 9rem;
+}
+.react-editor-description li.ql-indent-3:not(.ql-direction-rtl) {
+  padding-left: 10.5rem;
+}
+.react-editor-description .ql-indent-3.ql-direction-rtl.ql-align-right {
+  padding-right: 9rem;
+}
+.react-editor-description li.ql-indent-3.ql-direction-rtl.ql-align-right {
+  padding-right: 10.5rem;
+}
+.react-editor-description .ql-indent-4:not(.ql-direction-rtl) {
+  padding-left: 12rem;
+}
+.react-editor-description li.ql-indent-4:not(.ql-direction-rtl) {
+  padding-left: 13.5rem;
+}
+.react-editor-description .ql-indent-4.ql-direction-rtl.ql-align-right {
+  padding-right: 12rem;
+}
+.react-editor-description li.ql-indent-4.ql-direction-rtl.ql-align-right {
+  padding-right: 13.5rem;
+}
+.react-editor-description .ql-indent-5:not(.ql-direction-rtl) {
+  padding-left: 15rem;
+}
+.react-editor-description li.ql-indent-5:not(.ql-direction-rtl) {
+  padding-left: 16.5rem;
+}
+.react-editor-description .ql-indent-5.ql-direction-rtl.ql-align-right {
+  padding-right: 15rem;
+}
+.react-editor-description li.ql-indent-5.ql-direction-rtl.ql-align-right {
+  padding-right: 16.5rem;
+}
+.react-editor-description .ql-indent-6:not(.ql-direction-rtl) {
+  padding-left: 18rem;
+}
+.react-editor-description li.ql-indent-6:not(.ql-direction-rtl) {
+  padding-left: 19.5rem;
+}
+.react-editor-description .ql-indent-6.ql-direction-rtl.ql-align-right {
+  padding-right: 18rem;
+}
+.react-editor-description li.ql-indent-6.ql-direction-rtl.ql-align-right {
+  padding-right: 19.5rem;
+}
+.react-editor-description .ql-indent-7:not(.ql-direction-rtl) {
+  padding-left: 21rem;
+}
+.react-editor-description li.ql-indent-7:not(.ql-direction-rtl) {
+  padding-left: 22.5rem;
+}
+.react-editor-description .ql-indent-7.ql-direction-rtl.ql-align-right {
+  padding-right: 21rem;
+}
+.react-editor-description li.ql-indent-7.ql-direction-rtl.ql-align-right {
+  padding-right: 22.5rem;
+}
+.react-editor-description .ql-indent-8:not(.ql-direction-rtl) {
+  padding-left: 24rem;
+}
+.react-editor-description li.ql-indent-8:not(.ql-direction-rtl) {
+  padding-left: 25.5rem;
+}
+.react-editor-description .ql-indent-8.ql-direction-rtl.ql-align-right {
+  padding-right: 24rem;
+}
+.react-editor-description li.ql-indent-8.ql-direction-rtl.ql-align-right {
+  padding-right: 25.5rem;
+}
+.react-editor-description .ql-indent-9:not(.ql-direction-rtl) {
+  padding-left: 27rem;
+}
+.react-editor-description li.ql-indent-9:not(.ql-direction-rtl) {
+  padding-left: 28.5rem;
+}
+.react-editor-description .ql-indent-9.ql-direction-rtl.ql-align-right {
+  padding-right: 27rem;
+}
+.react-editor-description li.ql-indent-9.ql-direction-rtl.ql-align-right {
+  padding-right: 28.5rem;
+}
+.react-editor-description .ql-direction-rtl {
+  direction: rtl;
+  text-align: inherit;
+}
+.react-editor-description .ql-align-center {
+  @apply text-center;
+}
+.react-editor-description .ql-align-justify {
+  @apply text-justify;
+}
+.react-editor-description .ql-align-right {
+  @apply text-right;
+}
+
+.react-editor-description .ql-align-center img {
+  @apply mx-auto;
+}
+.react-editor-description .ql-align-right img {
+  @apply ml-auto;
+}

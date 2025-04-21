@@ -2,8 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
   "/settings": "pages/settings.js",
-  "/login": "pages/login.js",
-  "/shops/create": "pages/shops/create.js"
+  "/settings/company-information": "pages/settings/company-information.js",
+  "/": "pages/index.js"
 }

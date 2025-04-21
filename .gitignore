@@ -1,0 +1,5 @@
+# Next.js build cache
+.next/cache/
+
+# Node modules
+node_modules/

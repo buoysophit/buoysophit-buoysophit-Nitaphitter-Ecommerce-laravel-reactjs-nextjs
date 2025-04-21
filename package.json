@@ -1,0 +1,49 @@
+{
+  "name": "phitternita",
+  "private": true,
+  "author": "rupp",
+  "workspaces": [
+    "admin/*",
+    "shop"
+  ],
+  "scripts": {
+    "clean": "npm run rimraf \"{.next,node_modules}\" && rimraf node_modules",
+    "dev:shop-rest": "npm run --prefix shop dev",
+    "build:shop-rest": "npm run --prefix shop build",
+    "start:shop-rest": "npm run --prefix shop start",
+    "dev:admin-rest": "npm run --prefix admin/rest dev",
+    "build:admin-rest": "npm run --prefix admin/rest build",
+    "start:admin-rest": "npm run --prefix admin/rest start",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "husky": "6.0.0",
+    "lint-staged": "11.0.0",
+    "prettier": "2.2.1",
+    "rimraf": "3.0.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,md,css}": [
+      "prettier --trailing-comma es5 --write"
+    ]
+  },
+  "dependencies": {
+    "@floating-ui/react": "^0.26.1",
+    "@headlessui/react": "^1.7.17",
+    "@hookform/resolvers": "^3.3.2",
+    "@tanstack/react-query": "^4.36.1",
+    "axios": "^1.6.0",
+    "classnames": "^2.3.2",
+    "dayjs": "^1.11.10",
+    "framer-motion": "^10.16.4",
+    "i18next": "^23.6.0",
+    "jotai": "^2.5.1",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.48.2",
+    "react-i18next": "^13.3.1",
+    "react-router-dom": "^6.18.0",
+    "tailwindcss": "^3.3.5"
+  }
+}
